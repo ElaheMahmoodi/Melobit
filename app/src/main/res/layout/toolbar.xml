@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:elevation="4dp"
+    android:theme="@style/Theme.Melobit"
+    android:textDirection="rtl"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textDirection="rtl"
+        android:textColor="@color/purple"
+        android:text="ملوبیت"
+        android:padding="10dp"
+        android:textSize="40sp"
+        android:fontFamily="@font/yekan"
+        />
+</androidx.appcompat.widget.Toolbar>
