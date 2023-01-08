@@ -19,5 +19,7 @@
     <style name="Theme.Melobit.WhiteAccent">
         <item name="colorAccent">@color/purple</item> <!-- Whatever color you want-->
     </style>
-
+    <style name="BottomNavigationViewTextStyle">
+        <item name="android:fontFamily">@font/yekan</item>
+    </style>
 </resources>
