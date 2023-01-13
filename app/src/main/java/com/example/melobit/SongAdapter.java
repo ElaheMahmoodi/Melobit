@@ -3,6 +3,7 @@ package com.example.melobit;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,11 +19,12 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.myViewHolder> 
     public class myViewHolder extends RecyclerView.ViewHolder{
         TextView title ;
         TextView songArtist ;
-
+        ImageView artistPic;
         public myViewHolder(final View view){
         super(view);
         title = view.findViewById(R.id.songtitle);
-            songArtist = view.findViewById(R.id.songArtist);
+        songArtist = view.findViewById(R.id.songArtist);
+        artistPic = view.findViewById(R.id.artistpic);
 
 
 
@@ -39,7 +41,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.myViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull SongAdapter.myViewHolder holder, int position) {
         String title = songList.getResults().get(position).getTitle();
-        String songArtist = songList.getResults().get(position).getDownloadCount();
+        String songArtist = songList.getResults().get(position).getAlbum().getArtists().get(0).getFullName();
+        //TODO make Song class able to deliver URL to Picasso in order to load image into imageview
         holder.title.setText(title);
         holder.songArtist.setText(songArtist);
     }

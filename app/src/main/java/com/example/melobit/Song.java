@@ -19,6 +19,26 @@ public class Song {
         private String downloadCount;
         private String title;
         private Image image;
+        private Album album;
+
+        public Album getAlbum() {
+            return album;
+        }
+
+        public  class  Album{
+           private List<Artists> artists;
+
+            public List<Artists> getArtists() {
+                return artists;
+            }
+        }
+        public  class Artists {
+            private String fullName;
+
+            public String getFullName() {
+                return fullName;
+            }
+        }
         public class Image {
             private Slider slider ;
         }
