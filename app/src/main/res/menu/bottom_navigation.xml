@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/nav_playList"
-        android:icon="@drawable/ic_baseline_playlist_play_24"
-        android:title="لیست پخش" />
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="خانه" />
 
     <item
         android:id="@+id/nav_search"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="جستجو" />
+
     <item
-        android:id="@+id/nav_home"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="خانه" />
+        android:id="@+id/nav_playList"
+        android:icon="@drawable/ic_baseline_playlist_play_24"
+        android:title="لیست پخش" />
 </menu>
