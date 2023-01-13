@@ -8,8 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
-
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.myViewHolder> {
     private Song songList;
 
@@ -19,12 +17,12 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.myViewHolder> 
 
     public class myViewHolder extends RecyclerView.ViewHolder{
         TextView title ;
-        TextView downloadcounts ;
+        TextView songArtist ;
 
         public myViewHolder(final View view){
         super(view);
         title = view.findViewById(R.id.songtitle);
-        downloadcounts = view.findViewById(R.id.downloadscount);
+            songArtist = view.findViewById(R.id.songArtist);
 
 
 
@@ -41,9 +39,9 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.myViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull SongAdapter.myViewHolder holder, int position) {
         String title = songList.getResults().get(position).getTitle();
-        String downloadcounts = songList.getResults().get(position).getDownloadCount();
+        String songArtist = songList.getResults().get(position).getDownloadCount();
         holder.title.setText(title);
-        holder.downloadcounts.setText(downloadcounts);
+        holder.songArtist.setText(songArtist);
     }
 
     @Override
