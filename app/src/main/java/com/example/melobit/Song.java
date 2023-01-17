@@ -41,6 +41,18 @@ public class Song {
         }
         public class Image {
             private Slider slider ;
+            private Thumbnail thumbnail;
+            public class Thumbnail{
+              private String url;
+
+                public String getUrl() {
+                    return url;
+                }
+            }
+
+            public Thumbnail getThumbnail() {
+                return thumbnail;
+            }
         }
         public  class Slider{
             private String url;
