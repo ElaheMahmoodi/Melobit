@@ -19,6 +19,8 @@
 
         <EditText
             android:layout_width="match_parent"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
             android:layout_height="40dp"
             android:hint="جستجو"
             android:textColorHint="#000"
@@ -26,14 +28,16 @@
             android:layout_weight="1"
             android:paddingRight="10dp"
             android:textDirection="rtl"
+            android:singleLine="true"
             android:background="@drawable/shape_two"
             tools:ignore="TouchTargetSizeCheck" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="9"
-            android:background="@drawable/ic_baseline_search_24"/>
+            android:layout_weight="8"
+            android:background="@drawable/ic_baseline_search_24"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
