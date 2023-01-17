@@ -43,6 +43,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.myViewHolder> 
         String title = songList.getResults().get(position).getTitle();
         String songArtist = songList.getResults().get(position).getAlbum().getArtists().get(0).getFullName();
         //TODO make Song class able to deliver URL to Picasso in order to load image into imageview
+        //String picAddress = songList.getResults().get(position).getImage().toString();
+        //Picasso.get().load(picAddress).into(holder.artistPic);
         holder.title.setText(title);
         holder.songArtist.setText(songArtist);
     }
