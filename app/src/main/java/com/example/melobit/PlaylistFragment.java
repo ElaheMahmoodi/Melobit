@@ -23,8 +23,11 @@ public class PlaylistFragment extends Fragment {
     String clickType;
     Retrofit retrofit;
     MelobitAPI melobitAPI;
-    Call<Song> call ;
     RecyclerView recyclerView;
+    Call<Song> daytrendsCall ;
+    Call<Artist> artistCall ;
+    Call<Song> bestSongDayCall ;
+    Call<Song> bestSongWeekCall ;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -39,18 +42,20 @@ public class PlaylistFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
          melobitAPI = retrofit.create(MelobitAPI.class);
-         call =  melobitAPI.getSong();
 
+         daytrendsCall =  melobitAPI.getDayTrendSong();
+         artistCall = melobitAPI.getBestArtists();
+         bestSongDayCall = melobitAPI.getBestDaySong();
+         bestSongWeekCall = melobitAPI.getBestWeekSong();
         categoryHandler(clickType);
     }
 
     public void categoryHandler(String info){
         if(info.equals("dayTrends") ){
-            call.enqueue(new Callback<Song>() {
+            daytrendsCall.enqueue(new Callback<Song>() {
                 @Override
                 public void onResponse(Call<Song> call, Response<Song> response) {
                     Toast.makeText(getActivity(),String.valueOf(response.body().getTotal()), Toast.LENGTH_SHORT).show();
-
                     SongAdapter songAdapter = new SongAdapter(response.body());
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
                     recyclerView.setLayoutManager(layoutManager);
@@ -66,15 +71,60 @@ public class PlaylistFragment extends Fragment {
         }
 
         if(info.equals("artistTrend") ){
-            //apicall
+            artistCall.enqueue(new Callback<Artist>() {
+                @Override
+                public void onResponse(Call<Artist> call, Response<Artist> response) {
+                    Toast.makeText(getActivity(),String.valueOf(response.body().getTotal()), Toast.LENGTH_SHORT).show();
+                    ArtistAdapter artistAdapter = new ArtistAdapter(response.body());
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setItemAnimator(new DefaultItemAnimator());
+                    recyclerView.setAdapter(artistAdapter);
+                }
+
+                @Override
+                public void onFailure(Call<Artist> call, Throwable t) {
+
+                }
+            });
         }
 
         if(info.equals("bestSongDay") ){
-            //apicall
+            bestSongDayCall.enqueue(new Callback<Song>() {
+                @Override
+                public void onResponse(Call<Song> call, Response<Song> response) {
+                    Toast.makeText(getActivity(),String.valueOf(response.body().getTotal()), Toast.LENGTH_SHORT).show();
+                    SongAdapter songAdapter = new SongAdapter(response.body());
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setItemAnimator(new DefaultItemAnimator());
+                    recyclerView.setAdapter(songAdapter);
+                }
+
+                @Override
+                public void onFailure(Call<Song> call, Throwable t) {
+
+                }
+            });
         }
 
         if (info.equals("bestSongWeek") ){
-            //apicall
+            bestSongWeekCall.enqueue(new Callback<Song>() {
+                @Override
+                public void onResponse(Call<Song> call, Response<Song> response) {
+                    Toast.makeText(getActivity(),String.valueOf(response.body().getTotal()), Toast.LENGTH_SHORT).show();
+                    SongAdapter songAdapter = new SongAdapter(response.body());
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setItemAnimator(new DefaultItemAnimator());
+                    recyclerView.setAdapter(songAdapter);
+                }
+
+                @Override
+                public void onFailure(Call<Song> call, Throwable t) {
+
+                }
+            });
         }
     }
 
