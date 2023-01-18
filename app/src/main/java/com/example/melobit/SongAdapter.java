@@ -63,10 +63,10 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.myViewHolder> 
 //                Toast.makeText(view.getContext(), "Hello", Toast.LENGTH_SHORT).show();
 //               TODO address ahang grefte shavad
                 Fragment musicFragment = new MusicFragment();
-//                Bundle bundle  = new Bundle();
-//                bundle.putString("URL", songList.getResults().get(position).getAudio().getMedium().getUrl());
-//                musicFragment.setArguments(bundle);
-//                Toast.makeText(view.getContext(), songList.getResults().get(position).getAudio().getMedium().getUrl(), Toast.LENGTH_SHORT).show();
+                Bundle bundle  = new Bundle();
+                bundle.putString("URL", songList.getResults().get(position).getAudio().getMedium().getUrl());
+                musicFragment.setArguments(bundle);
+                Toast.makeText(view.getContext(), songList.getResults().get(position).getAudio().getMedium().getUrl(), Toast.LENGTH_SHORT).show();
                 ((MainActivity)view.getContext()).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                        musicFragment ).commit();
             }

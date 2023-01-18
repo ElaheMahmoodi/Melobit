@@ -24,7 +24,7 @@ public class MusicFragment extends Fragment {
     private SeekBar playerSeekbar;
     private MediaPlayer mediaPlayer;
     private Handler handler = new Handler();
-
+    private String URL ="https://s1.pr3m.ir/Music/1399/4/001/0/Sasy%20-%20Gentleman.mp3";
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -33,6 +33,8 @@ public class MusicFragment extends Fragment {
         currentTime = view.findViewById(R.id.currentTime);
         totalDuration = view.findViewById(R.id.totalDurationTime);
         playerSeekbar = view.findViewById(R.id.seekBar_luminosite);
+        URL = this.getArguments().getString("URL");
+
         mediaPlayer = new MediaPlayer();
 
         playerSeekbar.setMax(100);
@@ -45,14 +47,15 @@ public class MusicFragment extends Fragment {
                     mediaPlayer.pause();
                     stopOrPause.setImageResource(R.drawable.ic_baseline_play_arrow_24);
                 }else {
-                    mediaPlayer.start();
                     stopOrPause.setImageResource(R.drawable.ic_baseline_pause_24);
+                    prepareMediaPlayer();
+                    mediaPlayer.start();
                     updateSeekBar();
                 }
             }
         });
 
-        prepareMediaPlayer();
+
         playerSeekbar.setOnTouchListener(new View.OnTouchListener(){
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -88,7 +91,7 @@ public class MusicFragment extends Fragment {
         try {
             //  TODO mediaPlayer.setDataSource("");
 
-                mediaPlayer.setDataSource("https://s1.pr3m.ir/Music/1399/4/001/0/Sasy%20-%20Gentleman.mp3");
+                mediaPlayer.setDataSource(URL);
 
             mediaPlayer.prepare();
             totalDuration.setText(milliSecondsToTime(mediaPlayer.getDuration()));

@@ -140,7 +140,7 @@
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:layoutDirection="rtl"
-            android:progress="50"
+            android:progress="0"
             android:progressDrawable="@drawable/seekbar_style"
             android:thumb="@drawable/custom_thumb"
             app:layout_constraintEnd_toEndOf="parent"
