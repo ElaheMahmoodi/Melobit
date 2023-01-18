@@ -20,7 +20,27 @@ public class Song {
         private String title;
         private Image image;
         private Album album;
+        private Audio audio;
 
+        public Audio getAudio() {
+            return audio;
+        }
+
+        public class Audio{
+            private Medium medium;
+
+            public Medium getMedium() {
+                return medium;
+            }
+
+            public class Medium{
+                String url ;
+
+                public String getUrl() {
+                    return url;
+                }
+            }
+        }
         public Album getAlbum() {
             return album;
         }
