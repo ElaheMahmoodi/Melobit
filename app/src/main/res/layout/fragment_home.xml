@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/yekan"
-                android:text="جدیدترین آهنگ های روز"
+                android:text="جدیدترین آهنگ ها"
                 android:textColor="#fff"
                 android:textSize="24sp" />
 
@@ -70,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/yekan"
-                android:text="ده آهنگ برتر روز"
+                android:text="آهنگ های برتر روز"
                 android:textColor="#fff"
                 android:textSize="24sp" />
 
@@ -91,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/yekan"
-                android:text="ده آهنگ برتر هفته"
+                android:text="آهنگ های برتر هفته"
                 android:textColor="#fff"
                 android:textSize="24sp" />
 
