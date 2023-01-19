@@ -1,6 +1,5 @@
 package com.example.melobit;
 
-import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,7 +24,6 @@ public class MusicFragment extends Fragment {
     private MediaPlayer mediaPlayer;
     private Handler handler = new Handler();
     private String URL ="https://s1.pr3m.ir/Music/1399/4/001/0/Sasy%20-%20Gentleman.mp3";
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -67,12 +65,7 @@ public class MusicFragment extends Fragment {
             }
         });
 
-        mediaPlayer.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
-            @Override
-            public void onBufferingUpdate(MediaPlayer mp, int percent) {
-                playerSeekbar.setSecondaryProgress(percent);
-            }
-        });
+
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
@@ -120,7 +113,7 @@ public class MusicFragment extends Fragment {
         String secondsString;
         int hours = (int)(milliSeconds / (1000 * 60 *60));
         int minutes = (int)(milliSeconds % (1000 * 60 *60)) / (1000 * 60);
-        int seconds = (int)((milliSeconds / (1000 * 60 *60)) % (1000 * 60) / 1000);
+        int seconds = (int)((milliSeconds % (1000 * 60 *60)) % (1000 * 60) / 1000);
 
         if (hours > 0){
             timerString = hours + ":";

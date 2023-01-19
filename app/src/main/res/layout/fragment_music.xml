@@ -178,7 +178,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="20dp"
-            android:background="@drawable/ic_baseline_skip_next_24" />
+            android:src="@drawable/ic_baseline_skip_next_24" />
 
         <ImageView
             android:id="@+id/stopOrPauseSong"
