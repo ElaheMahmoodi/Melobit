@@ -33,7 +33,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/songName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/artistName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -52,11 +52,11 @@
         android:text="khannde"
         android:textColor="@color/purple"
         android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/songName"
         android:layout_margin="10dp"/>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/artistImage"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginTop="5dp"
@@ -64,7 +64,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/shape_two"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/artistName"
         tools:layout_editor_absoluteX="30dp" />
 
     <LinearLayout
@@ -79,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/artistImage">
 
         <ImageView
             android:layout_width="20dp"
@@ -88,6 +88,7 @@
             android:background="@drawable/ic_baseline_play_circle_outline_24" />
 
         <TextView
+            android:id="@+id/downloadCounts"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,6 +107,7 @@
             android:background="@drawable/ic_baseline_access_time_24" />
 
         <TextView
+            android:id="@+id/date"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

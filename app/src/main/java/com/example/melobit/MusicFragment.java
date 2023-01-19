@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.squareup.picasso.Picasso;
+
 public class MusicFragment extends Fragment {
 
     private ImageView stopOrPause;
@@ -21,7 +23,22 @@ public class MusicFragment extends Fragment {
     private SeekBar playerSeekbar;
     private MediaPlayer mediaPlayer;
     private Handler handler = new Handler();
+
+    private TextView songTitle ;
+    private TextView fullnameArtist ;
+    private TextView DLcount ;
+    private TextView RelaseDate ;
+    private ImageView coverImg;
+
+
+
     private String URL ="https://s1.pr3m.ir/Music/1399/4/001/0/Sasy%20-%20Gentleman.mp3";
+    private String title ;
+    private String date ;
+    private String downloadCount ;
+    private String picAddress ;
+    private String fullName ;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -29,7 +46,26 @@ public class MusicFragment extends Fragment {
         currentTime = view.findViewById(R.id.currentTime);
         totalDuration = view.findViewById(R.id.totalDurationTime);
         playerSeekbar = view.findViewById(R.id.seekBar_luminosite);
+        songTitle =  view.findViewById(R.id.songName);
+        fullnameArtist =  view.findViewById(R.id.artistName);
+        DLcount =  view.findViewById(R.id.downloadCounts);
+        RelaseDate = view.findViewById(R.id.date);
+        coverImg =view.findViewById(R.id.artistImage);
+
         URL = this.getArguments().getString("URL");
+        title = this.getArguments().getString("title");
+        date = this.getArguments().getString("date");
+        downloadCount = this.getArguments().getString("downloadCount");
+        picAddress = this.getArguments().getString("picAddress");
+        fullName = this.getArguments().getString("fullName");
+
+        songTitle.setText(title);
+//      TODO String to Date
+//      TODO Lyrics Request
+        RelaseDate.setText(date);
+        Picasso.get().load(picAddress).into(coverImg);
+        DLcount.setText(downloadCount);
+        fullnameArtist.setText(fullName);
 
         mediaPlayer = new MediaPlayer();
 
@@ -80,9 +116,7 @@ public class MusicFragment extends Fragment {
 
     private void prepareMediaPlayer() {
         try {
-            //  TODO mediaPlayer.setDataSource("");
-
-                mediaPlayer.setDataSource(URL);
+            mediaPlayer.setDataSource(URL);
 
             mediaPlayer.prepare();
             totalDuration.setText(milliSecondsToTime(mediaPlayer.getDuration()));

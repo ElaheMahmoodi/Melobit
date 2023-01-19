@@ -50,9 +50,11 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.myViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull SongAdapter.myViewHolder holder, int position) {
         String title = songList.getResults().get(position).getTitle();
+        String date = songList.getResults().get(position).getReleaseDate();
+        String downloadCount = songList.getResults().get(position).getDownloadCount();
         String songArtist = songList.getResults().get(position).getAlbum().getArtists().get(0).getFullName();
-        //TODO make Song class able to deliver URL to Picasso in order to load image into imageview
         String picAddress = songList.getResults().get(position).getImage().getThumbnail().getUrl();
+        String URL = songList.getResults().get(position).getAudio().getMedium().getUrl();
         Picasso.get().load(picAddress).into(holder.artistPic);
         holder.title.setText(title);
         holder.songArtist.setText(songArtist);
@@ -60,11 +62,17 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.myViewHolder> 
         holder.songItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(view.getContext(), "Hello", Toast.LENGTH_SHORT).show();
-//               TODO address ahang grefte shavad
+
                 Fragment musicFragment = new MusicFragment();
+
                 Bundle bundle  = new Bundle();
-                bundle.putString("URL", songList.getResults().get(position).getAudio().getMedium().getUrl());
+                bundle.putString("URL",URL );
+                bundle.putString("title",title);
+                bundle.putString("date",date);
+                bundle.putString("downloadCount",downloadCount);
+                bundle.putString("picAddress",picAddress);
+                bundle.putString("fullName",songArtist);
+
                 musicFragment.setArguments(bundle);
                 Toast.makeText(view.getContext(), songList.getResults().get(position).getAudio().getMedium().getUrl(), Toast.LENGTH_SHORT).show();
                 ((MainActivity)view.getContext()).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

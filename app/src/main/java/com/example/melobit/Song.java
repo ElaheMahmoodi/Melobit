@@ -21,6 +21,11 @@ public class Song {
         private Image image;
         private Album album;
         private Audio audio;
+        private String releaseDate;
+
+        public String getReleaseDate() {
+            return releaseDate;
+        }
 
         public Audio getAudio() {
             return audio;
