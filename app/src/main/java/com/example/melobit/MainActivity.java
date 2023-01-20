@@ -1,20 +1,21 @@
 package com.example.melobit;
 
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    MediaPlayer mp ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +36,11 @@ public class MainActivity extends AppCompatActivity {
      if(getVisibleFragment() instanceof  HomeFragment){
          super.onBackPressed();
      }else{
+         super.onBackPressed();
          Fragment  homeFragment = new HomeFragment();
          getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                  homeFragment).commit();
+
      }
     }
 

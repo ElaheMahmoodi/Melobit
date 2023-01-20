@@ -191,19 +191,6 @@
 
 
     </LinearLayout>
-
-        <TextView
-            android:id="@+id/lyrics"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/yekan"
-            android:gravity="center"
-            android:padding="15dp"
-            android:layout_margin="5dp"
-            android:text="متن آهنگ"
-            android:textColor="@color/white"
-            android:textDirection="rtl" />
     </LinearLayout>
     </ScrollView>
 
