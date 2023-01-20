@@ -38,7 +38,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="5dp"
-            android:paddingLeft="5dp">
+            android:paddingLeft="5dp"
+            android:layoutDirection="ltr">
 
             <TextView
                 android:id="@+id/resultTitle"
@@ -51,10 +52,14 @@
             <TextView
 
                 android:id="@+id/resultdes"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:text="1"
-                android:textColor="#00ffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:gravity="center"
+                android:text="songOrSinger"
+                android:textColor="#000"
+                android:background="@drawable/shape"
                 android:textSize="15sp" />
 
         </LinearLayout>
