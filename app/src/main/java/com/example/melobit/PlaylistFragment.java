@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -55,7 +54,6 @@ public class PlaylistFragment extends Fragment {
             daytrendsCall.enqueue(new Callback<Song>() {
                 @Override
                 public void onResponse(Call<Song> call, Response<Song> response) {
-                    Toast.makeText(getActivity(),String.valueOf(response.body().getTotal()), Toast.LENGTH_SHORT).show();
                     SongAdapter songAdapter = new SongAdapter(response.body());
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
                     recyclerView.setLayoutManager(layoutManager);
@@ -74,7 +72,6 @@ public class PlaylistFragment extends Fragment {
             artistCall.enqueue(new Callback<Artist>() {
                 @Override
                 public void onResponse(Call<Artist> call, Response<Artist> response) {
-                    Toast.makeText(getActivity(),String.valueOf(response.body().getTotal()), Toast.LENGTH_SHORT).show();
                     ArtistAdapter artistAdapter = new ArtistAdapter(response.body());
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
                     recyclerView.setLayoutManager(layoutManager);
@@ -93,7 +90,6 @@ public class PlaylistFragment extends Fragment {
             bestSongDayCall.enqueue(new Callback<Song>() {
                 @Override
                 public void onResponse(Call<Song> call, Response<Song> response) {
-                    Toast.makeText(getActivity(),String.valueOf(response.body().getTotal()), Toast.LENGTH_SHORT).show();
                     SongAdapter songAdapter = new SongAdapter(response.body());
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
                     recyclerView.setLayoutManager(layoutManager);
@@ -112,7 +108,6 @@ public class PlaylistFragment extends Fragment {
             bestSongWeekCall.enqueue(new Callback<Song>() {
                 @Override
                 public void onResponse(Call<Song> call, Response<Song> response) {
-                    Toast.makeText(getActivity(),String.valueOf(response.body().getTotal()), Toast.LENGTH_SHORT).show();
                     SongAdapter songAdapter = new SongAdapter(response.body());
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
                     recyclerView.setLayoutManager(layoutManager);
