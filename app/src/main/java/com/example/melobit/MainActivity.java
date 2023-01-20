@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
      if(getVisibleFragment() instanceof  HomeFragment){
          super.onBackPressed();
      }else{
-         super.onBackPressed();
          Fragment  homeFragment = new HomeFragment();
          getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                  homeFragment).commit();
