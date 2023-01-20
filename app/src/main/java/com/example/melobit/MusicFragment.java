@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso;
 
 public class MusicFragment extends Fragment {
 
-    private ImageView stopOrPause;
+    private ImageView stopOrPause,backSong,forSong;
     private TextView currentTime,totalDuration ;
     private SeekBar playerSeekbar;
     private MediaPlayer mediaPlayer;
@@ -30,7 +30,8 @@ public class MusicFragment extends Fragment {
     private TextView RelaseDate ;
     private ImageView coverImg;
 
-
+    private int seekForwardTime = 10 * 1000; // default 10 second
+    private int seekBackwardTime = 10 * 1000; // default 10 second
 
     private String URL ="https://s1.pr3m.ir/Music/1399/4/001/0/Sasy%20-%20Gentleman.mp3";
     private String title ;
@@ -39,10 +40,13 @@ public class MusicFragment extends Fragment {
     private String picAddress ;
     private String fullName ;
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         stopOrPause = view.findViewById(R.id.stopOrPauseSong);
+        backSong = view.findViewById(R.id.backwardSong);
+        forSong = view.findViewById(R.id.forwardSong);
         currentTime = view.findViewById(R.id.currentTime);
         totalDuration = view.findViewById(R.id.totalDurationTime);
         playerSeekbar = view.findViewById(R.id.seekBar_luminosite);
@@ -87,6 +91,19 @@ public class MusicFragment extends Fragment {
             }
         });
 
+        forSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                forwardSong();
+            }
+        });
+
+        backSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rewindSong();
+            }
+        });
 
         playerSeekbar.setOnTouchListener(new View.OnTouchListener(){
             @Override
@@ -114,6 +131,26 @@ public class MusicFragment extends Fragment {
     }
 
 
+    public void rewindSong() {
+        if (mediaPlayer != null) {
+            int currentPosition = mediaPlayer.getCurrentPosition();
+            if (currentPosition - seekBackwardTime >= 0) {
+                mediaPlayer.seekTo(currentPosition - seekBackwardTime);
+            } else {
+                mediaPlayer.seekTo(0);
+            }
+        }
+    }
+    public void forwardSong() {
+        if (mediaPlayer != null) {
+            int currentPosition = mediaPlayer.getCurrentPosition();
+            if (currentPosition + seekForwardTime <= mediaPlayer.getDuration()) {
+                mediaPlayer.seekTo(currentPosition + seekForwardTime);
+            } else {
+                mediaPlayer.seekTo(mediaPlayer.getDuration());
+            }
+        }
+    }
     private void prepareMediaPlayer() {
         try {
             mediaPlayer.setDataSource(URL);

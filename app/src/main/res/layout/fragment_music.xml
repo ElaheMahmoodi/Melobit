@@ -193,11 +193,11 @@
         app:layout_constraintTop_toBottomOf="@+id/linear">
 
         <ImageView
-            android:id="@+id/previousSong"
+            android:id="@+id/backwardSong"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="20dp"
-            android:src="@drawable/ic_baseline_skip_next_24" />
+            android:src="@drawable/ic_baseline_forward_10_24" />
 
         <ImageView
             android:id="@+id/stopOrPauseSong"
@@ -207,11 +207,11 @@
             android:src="@drawable/ic_baseline_play_arrow_24" />
 
         <ImageView
-            android:id="@+id/nextSong"
+            android:id="@+id/forwardSong"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="20dp"
-            android:background="@drawable/ic_baseline_skip_previous_24" />
+            android:background="@drawable/ic_baseline_replay_10_24" />
 
 
     </LinearLayout>
