@@ -66,7 +66,7 @@ public class MusicFragment extends Fragment {
         songTitle.setText(title);
 //      TODO String to Date
 //      TODO Lyrics Request
-        RelaseDate.setText(date);
+        RelaseDate.setText(date.substring(0,10));
         Picasso.get().load(picAddress).into(coverImg);
         DLcount.setText(downloadCount);
         fullnameArtist.setText(fullName);
