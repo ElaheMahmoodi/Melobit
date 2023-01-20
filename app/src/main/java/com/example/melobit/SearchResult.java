@@ -46,6 +46,49 @@ public class SearchResult {
         public class Song{
             private String title;
             private Image image;
+            private Audio audio;
+            private String downloadCount;
+            private String releaseDate;
+
+            public String getDownloadCount() {
+                return downloadCount;
+            }
+
+            public String getReleaseDate() {
+                return releaseDate;
+            }
+
+            private com.example.melobit.Song.Result.Album album;
+            public Audio getAudio() {
+                return audio;
+            }
+            public com.example.melobit.Song.Result.Album getAlbum() {
+                return album;
+            }
+
+            public  class  Album{
+                private List<com.example.melobit.Song.Result.Artists> artists;
+
+                public List<com.example.melobit.Song.Result.Artists> getArtists() {
+                    return artists;
+                }
+            }
+
+            public class Audio{
+                private Medium medium;
+
+                public Medium getMedium() {
+                    return medium;
+                }
+
+                public class Medium{
+                    String url ;
+
+                    public String getUrl() {
+                        return url;
+                    }
+                }
+            }
 
             public Image getImage() {
                 return image;
